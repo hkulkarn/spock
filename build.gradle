@@ -1,0 +1,33 @@
+apply plugin: 'groovy'
+
+version = "1.0"
+description = "SpoockyOne"
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenLocal()
+				  jcenter()
+}
+
+sourceSets {
+	main {
+		java.srcDir "src/main/java"
+	}
+	test {
+		java.srcDir "src/test/groovy"
+	}
+
+}
+
+dependencies {
+	compile("org.slf4j:slf4j-api:${slf4jVersion}")
+	
+	testRuntime("ch.qos.logback:logback-core:${logbackCoreVersion}")
+	testRuntime("ch.qos.logback:logback-classic:${logbackClassicVersion}")
+
+	testCompile ("junit:junit:${junitVersion}")
+	testCompile("org.codehaus.groovy:groovy-all:${groovyVersion}")
+	testCompile("org.spockframework:spock-core:${spockFrameworkVersion}")
+}
